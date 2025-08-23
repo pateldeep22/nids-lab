@@ -1,0 +1,1 @@
+alert http any any -> $HOME_NET 80 (msg:"Malware C2 Beacon Detected(Suspicious User Agent)"; flow:to_server; http.user_agent; content:"C2-Beacon-Client"; sid:1000009; rev:1;)
