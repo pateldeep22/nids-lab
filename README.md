@@ -22,15 +22,6 @@ Victim Machine: Windows 10 (192.168.70.20)
 
 Network Mode: Host-Only (VMnet1) on a 192.168.70.0/24 subnet.
 
-Network Diagram
-+---------------------------+                +--------------------------+
-|      Kali Linux VM        |                |     Windows 10 VM        |
-|  (Attacker & NIDS)        |                |         (Victim)         |
-|                           |                |                          |
-|  IP: 192.168.70.10        <--------------->|  IP: 192.168.70.20       |
-|  - Suricata (NIDS)        |   Host-Only    |  - SSH Server            |
-|  - Nmap, Hydra (Tools)    |    Network     |  - FTP Server            |
-+---------------------------+                +--------------------------+
 
 ⚙️ Tech Stack
 NIDS Engine: Suricata
@@ -43,34 +34,6 @@ Virtualization: VMware Workstation
 
 Version Control: Git & GitHub
 
-📂 Repository Structure
-The repository is organized to clearly separate configurations, rules, documentation, and attack plans.
-
-nids-lab/
-│
-├── .gitignore                  # Tells Git which files (like logs) to ignore.
-├── README.md                   # You are here! Project overview and setup guide.
-│
-├── configs/                    # Holds the configuration files for the NIDS engine.
-│   ├── suricata.yaml           # The main configuration file for Suricata.
-│   └── network-settings.md     # A quick reference for lab IP and network settings.
-│
-├── docs/                       # Contains all detailed weekly reports.
-│   ├── week1-lab-setup.md
-│   ├── week2-nmap-rules.md
-│   ├── week3-bruteforce-rules.md
-│   └── week4-c2-detection.md
-│
-├── rules/                      # Contains all the custom detection rules.
-│   ├── local.rules             # For initial baseline testing.
-│   ├── week2.rules             # Rules for Nmap scan detection.
-│   ├── week3.rules             # Rules for brute-force detection.
-│   └── week4.rules             # Rules for malware C2 detection.
-│
-└── attacks/                    # A playbook of commands used to generate attack traffic.
-    ├── nmap-tests.md
-    ├── hydra-tests.md
-    └── c2-simulations.md
 
 📖 Quick Start & Replication Guide
 This guide provides the steps to replicate the lab environment and run the tests. All commands are run from the Kali Linux VM unless specified otherwise.
@@ -123,3 +86,4 @@ alert http any any -> $HOME_NET 80 (msg:"Malware C2 Beacon Detected (Suspicious 
 
 
 Feel free to explore the repository. All rules, reports, and attack plans are documented in their respective folders.
+
